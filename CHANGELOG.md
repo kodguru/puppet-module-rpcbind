@@ -1,5 +1,12 @@
 # Change Log
 
+## [v1.6.0](https://github.com/ghoneycutt/puppet-module-rpcbind/tree/v1.5.0) (2016-08-31)
+[Full Changelog](https://github.com/ghoneycutt/puppet-module-rpcbind/compare/v1.5.0...v1.6.0)
+
+**Merged pull requests:**
+
+- Add support for Ruby v2.3.1 [\#23](https://github.com/ghoneycutt/puppet-module-rpcbind/pull/23) ([ghoneycutt](https://github.com/ghoneycutt))
+
 ## [v1.5.0](https://github.com/ghoneycutt/puppet-module-rpcbind/tree/v1.5.0) (2015-11-14)
 [Full Changelog](https://github.com/ghoneycutt/puppet-module-rpcbind/compare/v1.4.0...v1.5.0)
 
