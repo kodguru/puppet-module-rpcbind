@@ -1,5 +1,10 @@
 # Change Log
 
+## [v1.6.1](https://github.com/ghoneycutt/puppet-module-rpcbind/tree/v1.5.0) (2016-08-31)
+[Full Changelog](https://github.com/ghoneycutt/puppet-module-rpcbind/compare/v1.6.0...v1.6.1)
+
+Remove Modulefile as it is deprecated.
+
 ## [v1.6.0](https://github.com/ghoneycutt/puppet-module-rpcbind/tree/v1.5.0) (2016-08-31)
 [Full Changelog](https://github.com/ghoneycutt/puppet-module-rpcbind/compare/v1.5.0...v1.6.0)
 
