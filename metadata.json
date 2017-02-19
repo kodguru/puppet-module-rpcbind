@@ -1,6 +1,6 @@
 {
   "name": "ghoneycutt-rpcbind",
-  "version": "1.6.1",
+  "version": "1.7.0",
   "author": "ghoneycutt",
   "summary": "Manage rpcbind",
   "license": "Apache-2.0",
@@ -63,7 +63,8 @@
       "operatingsystem": "Ubuntu",
       "operatingsystemrelease": [
         "12.04",
-        "14.04"
+        "14.04",
+        "16.04"
       ]
     }
   ],

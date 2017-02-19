@@ -1,5 +1,10 @@
 # Change Log
 
+## [v1.7.0](https://github.com/ghoneycutt/puppet-module-rpcbind/tree/v1.7.0) (2017-02-19)
+[Full Changelog](https://github.com/ghoneycutt/puppet-module-rpcbind/compare/v1.6.1...v1.7.0)
+
+Add support for Ubuntu 16.04.
+
 ## [v1.6.1](https://github.com/ghoneycutt/puppet-module-rpcbind/tree/v1.5.0) (2016-08-31)
 [Full Changelog](https://github.com/ghoneycutt/puppet-module-rpcbind/compare/v1.6.0...v1.6.1)
 
