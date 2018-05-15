@@ -1,16 +1,27 @@
 # Change Log
 
+## [v1.8.0](https://github.com/ghoneycutt/puppet-module-rpcbind/tree/v1.8.0)
+
+[Full Changelog](https://github.com/ghoneycutt/puppet-module-rpcbind/compare/v1.7.0...v1.8.0)
+
+**Merged pull requests:**
+
+- Fix metadata [\#29](https://github.com/ghoneycutt/puppet-module-rpcbind/pull/29) ([ghoneycutt](https://github.com/ghoneycutt))
+- Add support for Ubuntu 18.04 [\#28](https://github.com/ghoneycutt/puppet-module-rpcbind/pull/28) ([nbentoumi](https://github.com/nbentoumi))
+- Support Puppet \>= 4.9 [\#26](https://github.com/ghoneycutt/puppet-module-rpcbind/pull/26) ([Phil-Friderici](https://github.com/Phil-Friderici))
+
 ## [v1.7.0](https://github.com/ghoneycutt/puppet-module-rpcbind/tree/v1.7.0) (2017-02-19)
 [Full Changelog](https://github.com/ghoneycutt/puppet-module-rpcbind/compare/v1.6.1...v1.7.0)
 
-Add support for Ubuntu 16.04.
+**Merged pull requests:**
 
-## [v1.6.1](https://github.com/ghoneycutt/puppet-module-rpcbind/tree/v1.5.0) (2016-08-31)
+- Add support for Ubuntu 16.04 [\#25](https://github.com/ghoneycutt/puppet-module-rpcbind/pull/25) ([dsundq](https://github.com/dsundq))
+- \(maint\) fix dependencies [\#24](https://github.com/ghoneycutt/puppet-module-rpcbind/pull/24) ([ghoneycutt](https://github.com/ghoneycutt))
+
+## [v1.6.1](https://github.com/ghoneycutt/puppet-module-rpcbind/tree/v1.6.1) (2016-08-31)
 [Full Changelog](https://github.com/ghoneycutt/puppet-module-rpcbind/compare/v1.6.0...v1.6.1)
 
-Remove Modulefile as it is deprecated.
-
-## [v1.6.0](https://github.com/ghoneycutt/puppet-module-rpcbind/tree/v1.5.0) (2016-08-31)
+## [v1.6.0](https://github.com/ghoneycutt/puppet-module-rpcbind/tree/v1.6.0) (2016-08-31)
 [Full Changelog](https://github.com/ghoneycutt/puppet-module-rpcbind/compare/v1.5.0...v1.6.0)
 
 **Merged pull requests:**
