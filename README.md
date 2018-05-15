@@ -23,6 +23,7 @@ parser) and Puppet v4 with Ruby versions 1.8.7, 1.9.3, 2.0.0, 2.1.0 and
  * Ubuntu 12.04 LTS
  * Ubuntu 14.04 LTS
  * Ubuntu 16.04 LTS
+ * Ubuntu 18.04 LTS
 
 ---
 
