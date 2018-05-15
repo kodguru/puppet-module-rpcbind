@@ -16,6 +16,7 @@ parser) and Puppet v4 with Ruby versions 1.8.7, 1.9.3, 2.0.0, 2.1.0 and
 2.3.1 on the following platforms.
 
  * Debian 6
+ * EL 5
  * EL 6
  * Suse 10
  * Suse 11
