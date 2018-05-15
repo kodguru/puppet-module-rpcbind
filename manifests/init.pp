@@ -29,8 +29,11 @@ class rpcbind (
             '16.04': {
               $default_service_name = 'rpcbind'
             }
+            '18.04': {
+              $default_service_name = 'rpcbind'
+            }
             default: {
-              fail("rpcbind is only supported on Ubuntu 12.04, 14.04 and 16.04. Detected lsbdistrelease is <${::lsbdistrelease}>.")
+              fail("rpcbind is only supported on Ubuntu 12.04, 14.04, 16.04 and 18.04. Detected lsbdistrelease is <${::lsbdistrelease}>.")
             }
           }
         }
