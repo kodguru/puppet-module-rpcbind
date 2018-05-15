@@ -1,7 +1,15 @@
 # Change Log
 
-## [v1.8.0](https://github.com/ghoneycutt/puppet-module-rpcbind/tree/v1.8.0)
+## [v2.0.0](https://github.com/ghoneycutt/puppet-module-rpcbind/tree/v2.0.0)
 
+[Full Changelog](https://github.com/ghoneycutt/puppet-module-rpcbind/compare/v1.8.0...v2.0.0)
+
+**Closed issues:**
+
+- Upstream issue with systemd where rpcbind\_service enable keeps changing from false to true. [\#27](https://github.com/ghoneycutt/puppet-module-rpcbind/issues/27)
+- install fails because of missing link [\#13](https://github.com/ghoneycutt/puppet-module-rpcbind/issues/13)
+
+## [v1.8.0](https://github.com/ghoneycutt/puppet-module-rpcbind/tree/v1.8.0) (2018-05-15)
 [Full Changelog](https://github.com/ghoneycutt/puppet-module-rpcbind/compare/v1.7.0...v1.8.0)
 
 **Merged pull requests:**

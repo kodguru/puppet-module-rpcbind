@@ -1,95 +1,48 @@
-# == Class: rpcbind
+# @summary rpcbind class
 #
-# Manage rpcbind
+# Manages rpcbind package and service.
+#
+# @example Declaring the class
+#   include ::rpcbind
+#
+# @param package_ensure Value used for the ensure attribute of the rpcbind package resource.
+# @param package_name Value used for the name attribute of the rpcbind package resource.
+# @param service_enable Boolean used for the enable attribute of the rpcbind service resource.
+# @param service_ensure Value used for the ensure attribute of the rpcbind service resource.
+# @param service_name Value used for the name attribute of the rpcbind service resource.
 #
 class rpcbind (
-  $package_ensure = 'installed',
-  $package_name   = 'USE_DEFAULTS',
-  $service_enable = true,
-  $service_ensure = 'running',
-  $service_name   = 'USE_DEFAULTS',
+  String $package_ensure = 'installed',
+  String $package_name   = 'rpcbind',
+  Boolean $service_enable = true,
+  String $service_ensure = 'running',
+  String $service_name   = 'rpcbind',
 ) {
 
-  case $::osfamily {
-    'Debian': {
-      $default_package_name = 'rpcbind'
-
-      case $::lsbdistid {
-        'Debian': {
-          $default_service_name = 'rpcbind'
-        }
-        'Ubuntu': {
-          case $::lsbdistrelease {
-            '12.04': {
-              $default_service_name = 'portmap'
-            }
-            '14.04': {
-              $default_service_name = 'rpcbind'
-            }
-            '16.04': {
-              $default_service_name = 'rpcbind'
-            }
-            '18.04': {
-              $default_service_name = 'rpcbind'
-            }
-            default: {
-              fail("rpcbind is only supported on Ubuntu 12.04, 14.04, 16.04 and 18.04. Detected lsbdistrelease is <${::lsbdistrelease}>.")
-            }
-          }
-        }
-        default: {
-          fail("rpcbind on osfamily Debian supports lsbdistid Debian and Ubuntu. Detected lsbdistid is <${::lsbdistid}>.")
-        }
-      }
-    }
-    'Suse': {
-      case $::lsbmajdistrelease {
-        '10': {
-          $default_package_name = 'portmap'
-          $default_service_name = 'portmap'
-        }
-        '11': {
-          $default_package_name = 'rpcbind'
-          $default_service_name = 'rpcbind'
-        }
-        '12': {
-          $default_package_name = 'rpcbind'
-          $default_service_name = 'rpcbind'
-        }
-        default: {
-          fail("rpcbind on osfamily Suse supports lsbmajdistrelease 10, 11, and 12. Detected lsbmajdistrelease is <${::lsbmajdistrelease}>.")
-        }
-      }
-    }
-    'RedHat': {
-      $default_package_name = 'rpcbind'
-      $default_service_name = 'rpcbind'
-    }
-    default: {
-      fail("rpcbind supports osfamilies Debian, RedHat, and Suse. Detected osfamily is <${::osfamily}>")
-    }
+  # Fail on unsupported platforms
+  if !($facts['os']['family'] in ['Debian','RedHat','Suse']) {
+    fail('Unsupported osfamily detected. This module works with Debian, RedHat and Suse')
   }
 
-  if $package_name == 'USE_DEFAULTS' {
-    $package_name_real = $default_package_name
-  } else {
-    $package_name_real = $package_name
+  if $facts['os']['family'] == 'RedHat' and !($facts['os']['release']['major'] in ['6','7']) {
+    fail("osfamily RedHat's os.release.major is <${::facts['os']['release']['major']}> and must be 6 or 7")
+  } elsif $facts['os']['family'] == 'Suse' and !($facts['os']['release']['major'] in ['11','12']) {
+    fail("osfamily Suse's os.release.major is <${::facts['os']['release']['major']}> and must be 11 or 12")
+  } elsif $facts['os']['name'] == 'Debian' and !($facts['os']['release']['major'] in ['8','9']) {
+    fail("Ubuntu's os.release.major is <${facts['os']['release']['major']}> and must be 8 or 9")
+  } elsif $facts['os']['name'] == 'Ubuntu' and !($facts['os']['release']['major'] in ['14.04','16.04','18.04']) {
+    fail("Ubuntu's os.release.major is <${facts['os']['release']['major']}> and must be 14.04, 16.04 or 18.04")
   }
 
-  if $service_name == 'USE_DEFAULTS' {
-    $service_name_real = $default_service_name
-  } else {
-    $service_name_real = $service_name
-  }
-
-  package { $package_name_real:
+  package { 'rpcbind_package':
     ensure => $package_ensure,
+    name   => $package_name,
   }
 
   service { 'rpcbind_service':
     ensure  => $service_ensure,
-    name    => $service_name_real,
+    name    => $service_name,
     enable  => $service_enable,
-    require => Package[$package_name_real],
+    require => Package['rpcbind_package'],
   }
 }
