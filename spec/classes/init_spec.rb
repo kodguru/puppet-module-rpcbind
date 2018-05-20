@@ -1,395 +1,148 @@
 require 'spec_helper'
 describe 'rpcbind' do
 
-  describe 'with default values for parameters' do
-    context 'on unsupported osfamily' do
-      let(:facts) { { :osfamily => 'Solaris' } }
+  describe 'on unsupported platforms' do
+    unsupported_platforms.sort.each do |k,v|
+      context "with defaults params on #{k}" do
+        let(:facts) { v[:facts_hash] }
 
-      it 'should fail' do
-        expect {
-          should contain_class('rpcbind')
-        }.to raise_error(Puppet::Error,/rpcbind supports osfamilies Debian, RedHat, and Suse. Detected osfamily is <Solaris>/)
-      end
-    end
-
-    context 'on supported osfamily Debian with unsupported lsbdistid' do
-      let(:facts) do
-        { :lsbdistid => 'Unsupported',
-          :osfamily => 'Debian',
-        }
-      end
-
-      it 'should fail' do
-        expect {
-          should contain_class('rpcbind')
-        }.to raise_error(Puppet::Error,/rpcbind on osfamily Debian supports lsbdistid Debian and Ubuntu. Detected lsbdistid is <Unsupported>\./)
-      end
-    end
-
-    context 'on supported osfamily Debian with supported lsbdistid Ubuntu and unsupported lsbdistrelease' do
-      let(:facts) do
-        { :lsbdistid      => 'Ubuntu',
-          :osfamily       => 'Debian',
-          :lsbdistrelease => 'not12.04',
-        }
-      end
-
-      it 'should fail' do
-        expect {
-          should contain_class('rpcbind')
-        }.to raise_error(Puppet::Error,/rpcbind is only supported on Ubuntu 12.04, 14.04, 16.04 and 18.04. Detected lsbdistrelease is <not12.04>\./)
-      end
-    end
-
-    context 'on supported osfamily Suse with unsupported lsbmajdistrelease' do
-      let(:facts) do
-        { :lsbmajdistrelease => '9',
-          :osfamily          => 'Suse',
-        }
-      end
-
-      it 'should fail' do
-        expect {
-          should contain_class('rpcbind')
-        }.to raise_error(Puppet::Error,/rpcbind on osfamily Suse supports lsbmajdistrelease 10, 11, and 12. Detected lsbmajdistrelease is <9>\./)
+        it 'should fail' do
+          expect {
+            should contain_class('rpcbind')
+          }.to raise_error(Puppet::Error,/os\.release\.major|Unsupported osfamily detected/)
+        end
       end
     end
   end
 
-  describe 'package resource' do
-    context 'with default params on osfamily Suse 10' do
-      let(:facts) { { :osfamily => 'Suse', :lsbmajdistrelease => '10' } }
-
-      it {
-        should contain_package('portmap').with({
-          'ensure' => 'installed',
-        })
-      }
-    end
-
-    context 'with default params on osfamily Suse 11' do
-      let(:facts) { { :osfamily => 'Suse', :lsbmajdistrelease => '11' } }
-
-      it {
-        should contain_package('rpcbind').with({
-          'ensure' => 'installed',
-        })
-      }
-    end
-
-    context 'with default params on osfamily Suse 12' do
-      let(:facts) { { :osfamily => 'Suse', :lsbmajdistrelease => '12' } }
-
-      it {
-        should contain_package('rpcbind').with({
-          'ensure' => 'installed',
-        })
-      }
-    end
-
-    context 'with default params on osfamily RedHat' do
-      let(:facts) { { :osfamily => 'RedHat' } }
-
-      it {
-        should contain_package('rpcbind').with({
-          'ensure' => 'installed',
-        })
-      }
-    end
-
-    context 'with default params on Debian' do
-      let(:facts) do
-        { :lsbdistid => 'Debian',
-          :osfamily => 'Debian',
-        }
-      end
-
-      it {
-        should contain_package('rpcbind').with({
-          'ensure' => 'installed',
-        })
-      }
-    end
-
-    context 'with default params on Ubuntu 12.04' do
-      let(:facts) do
-        { :lsbdistid      => 'Ubuntu',
-          :lsbdistrelease => '12.04',
-          :osfamily       => 'Debian',
-        }
-      end
-
-      it {
-        should contain_package('rpcbind').with({
-          'ensure' => 'installed',
-        })
-      }
-    end
-
-    context 'with default params on Ubuntu 14.04' do
-      let(:facts) do
-        { :lsbdistid      => 'Ubuntu',
-          :lsbdistrelease => '14.04',
-          :osfamily       => 'Debian',
-        }
-      end
-
-      it {
-        should contain_package('rpcbind').with({
-          'ensure' => 'installed',
-        })
-      }
-    end
-
-    context 'with default params on Ubuntu 16.04' do
-      let(:facts) do
-        { :lsbdistid      => 'Ubuntu',
-          :lsbdistrelease => '16.04',
-          :osfamily       => 'Debian',
-        }
-      end
-
-      it {
-        should contain_package('rpcbind').with({
-          'ensure' => 'installed',
-        })
-      }
-    end
-
-    context 'with default params on Ubuntu 18.04' do
-      let(:facts) do
-        { :lsbdistid      => 'Ubuntu',
-          :lsbdistrelease => '18.04',
-          :osfamily       => 'Debian',
-        }
-      end
-
-      it {
-        should contain_package('rpcbind').with({
-          'ensure' => 'installed',
-        })
-      }
-    end
-
-    context 'with ensure absent' do
-      let(:facts) { { :osfamily => 'RedHat' } }
-      let(:params) { { :package_ensure => 'absent' } }
-
-      it {
-        should contain_package('rpcbind').with({
-          'ensure' => 'absent',
-        })
-      }
-    end
-
-    context 'with supplied string for package name' do
-      let(:facts) { { :osfamily => 'RedHat' } }
-      let(:params) { { :package_name => 'my_rpcbind' } }
-
-      it {
-        should contain_package('my_rpcbind').with({
-          'ensure' => 'installed',
-        })
-      }
-    end
-
-    context 'with supplied array for package name' do
-      let(:facts) { { :osfamily => 'RedHat' } }
-      packages = [ 'rpcbind', 'rpcbindfoo', 'rpcbindbar' ]
-      let(:params) { { :package_name => packages } }
-
-      packages.each do |pkg|
+  platforms.sort.each do |os,v|
+    context "with default values for parameters on OS #{os}" do
+      let(:facts) { v[:facts_hash] }
         it {
-          should contain_package(pkg).with({
+          should contain_package('rpcbind_package').with({
             'ensure' => 'installed',
+            'name'   => v[:package_name],
           })
         }
-      end
+
+        it {
+          should contain_service('rpcbind_service').with({
+            'ensure' => 'running',
+            'name'   => v[:service_name],
+            'enable' => true,
+            'require' => 'Package[rpcbind_package]',
+          })
+        }
     end
   end
 
-  describe 'service resource' do
-    context 'with default params on osfamily RedHat' do
-      let(:facts) { { :osfamily => 'RedHat' } }
+  describe 'with package_ensure absent' do
+    let(:facts) { platforms['el7'][:facts_hash] }
+    let(:params) { { :package_ensure => 'absent' } }
 
-      it {
-        should contain_service('rpcbind_service').with({
-          'ensure' => 'running',
-          'name'   => 'rpcbind',
-          'enable' => true,
-        })
-      }
-    end
-
-    context 'with default params on Debian' do
-      let(:facts) do
-        { :lsbdistid => 'Debian',
-          :osfamily => 'Debian',
-        }
-      end
-
-      it {
-        should contain_service('rpcbind_service').with({
-          'ensure' => 'running',
-          'name'   => 'rpcbind',
-          'enable' => true,
-        })
-      }
-    end
-
-    context 'with default params on Ubuntu 12.04' do
-      let(:facts) do
-        { :lsbdistid      => 'Ubuntu',
-          :osfamily       => 'Debian',
-          :lsbdistrelease => '12.04',
-        }
-      end
-
-      it {
-        should contain_service('rpcbind_service').with({
-          'ensure' => 'running',
-          'name'   => 'portmap',
-          'enable' => true,
-        })
-      }
-    end
-
-    context 'with default params on Ubuntu 14.04' do
-      let(:facts) do
-        { :lsbdistid      => 'Ubuntu',
-          :osfamily       => 'Debian',
-          :lsbdistrelease => '14.04',
-        }
-      end
-
-      it {
-        should contain_service('rpcbind_service').with({
-          'ensure' => 'running',
-          'name'   => 'rpcbind',
-          'enable' => true,
-        })
-      }
-    end
-
-    context 'with default params on Ubuntu 16.04' do
-      let(:facts) do
-        { :lsbdistid      => 'Ubuntu',
-          :osfamily       => 'Debian',
-          :lsbdistrelease => '16.04',
-        }
-      end
-
-      it {
-        should contain_service('rpcbind_service').with({
-          'ensure' => 'running',
-          'name'   => 'rpcbind',
-          'enable' => true,
-        })
-      }
-    end
-
-    context 'with default params on Ubuntu 18.04' do
-      let(:facts) do
-        { :lsbdistid      => 'Ubuntu',
-          :osfamily       => 'Debian',
-          :lsbdistrelease => '18.04',
-        }
-      end
-
-      it {
-        should contain_service('rpcbind_service').with({
-          'ensure' => 'running',
-          'name'   => 'rpcbind',
-          'enable' => true,
-        })
-      }
-    end
-
-    context 'with default params on Suse 10' do
-      let(:facts) do
-        { :osfamily          => 'Suse',
-          :lsbmajdistrelease => '10',
-        }
-      end
-
-      it {
-        should contain_service('rpcbind_service').with({
-          'ensure' => 'running',
-          'name'   => 'portmap',
-          'enable' => true,
-        })
-      }
-    end
-
-    context 'with default params on Suse 11' do
-      let(:facts) do
-        { :osfamily          => 'Suse',
-          :lsbmajdistrelease => '11',
-        }
-      end
-
-      it {
-        should contain_service('rpcbind_service').with({
-          'ensure' => 'running',
-          'name'   => 'rpcbind',
-          'enable' => true,
-        })
-      }
-    end
-
-    context 'with default params on Suse 12' do
-      let(:facts) do
-        { :osfamily          => 'Suse',
-          :lsbmajdistrelease => '12',
-        }
-      end
-
-      it {
-        should contain_service('rpcbind_service').with({
-          'ensure' => 'running',
-          'name'   => 'rpcbind',
-          'enable' => true,
-        })
-      }
-    end
-
-    context 'with ensure stopped' do
-      let(:facts) { { :osfamily => 'RedHat' } }
-      let(:params) { { :service_ensure => 'stopped' } }
-
-      it {
-        should contain_service('rpcbind_service').with({
-          'ensure' => 'stopped',
-          'name'   => 'rpcbind',
-          'enable' => true,
-        })
-      }
-    end
-
-    context 'with supplied string for service name' do
-      let(:facts) { { :osfamily => 'RedHat' } }
-      let(:params) { { :service_name => 'my_rpcbind' } }
-
-      it {
-        should contain_service('rpcbind_service').with({
-          'ensure' => 'running',
-          'name'   => 'my_rpcbind',
-          'enable' => true,
-        })
-      }
-    end
-
-    context 'with enable false' do
-      let(:facts) { { :osfamily => 'RedHat' } }
-      let(:params) { { :service_enable => false } }
-
-      it {
-        should contain_service('rpcbind_service').with({
-          'ensure' => 'running',
-          'name'   => 'rpcbind',
-          'enable' => false,
-        })
-      }
-    end
+    it {
+      should contain_package('rpcbind_package').with({
+        'ensure' => 'absent',
+      })
+    }
   end
+
+  describe 'with package_name specified' do
+    let(:facts) { platforms['el7'][:facts_hash] }
+    let(:params) { { :package_name => 'my_rpcbind' } }
+
+    it {
+      should contain_package('rpcbind_package').with({
+        'ensure' => 'installed',
+        'name'   => 'my_rpcbind',
+      })
+    }
+  end
+
+  describe 'with service_ensure stopped' do
+    let(:facts) { platforms['el7'][:facts_hash] }
+    let(:params) { { :service_ensure => 'stopped' } }
+
+    it {
+      should contain_service('rpcbind_service').with({
+        'ensure' => 'stopped',
+      })
+    }
+  end
+
+  describe 'with service_name specified' do
+    let(:facts) { platforms['el7'][:facts_hash] }
+    let(:params) { { :service_name => 'my_rpcbind' } }
+
+    it {
+      should contain_service('rpcbind_service').with({
+        'name' => 'my_rpcbind',
+      })
+    }
+  end
+
+  describe 'with service_enable false' do
+    let(:facts) { platforms['el7'][:facts_hash] }
+    let(:params) { { :service_enable => false } }
+
+    it {
+      should contain_service('rpcbind_service').with({
+        'enable' => false,
+      })
+    }
+  end
+
+  describe 'variable data type and content validations' do
+    let(:facts) { platforms['el7'][:facts_hash] }
+
+    validations = {
+      'boolean' => {
+        :name    => %w(service_enable),
+        :valid   => [true, false],
+        :invalid => ['string', %w(array), { 'ha' => 'sh' }, 3, 2.42, 'false'],
+        :message => 'expects a Boolean value', # Puppet 4 & 5
+      },
+      'string' => {
+        :name    => %w(package_name service_name),
+        :valid   => %w(string),
+        :invalid => [%w(array), { 'ha' => 'sh' }, 3, 2.42, false],
+        :message => 'expects a String value', # Puppet 4 & 5
+      },
+      'string_service_ensure' => {
+        :name    => %w(service_ensure),
+        :valid   => %w(running),
+        :invalid => [%w(array), { 'ha' => 'sh' }, 3, 2.42, false],
+        :message => 'expects a String value', # Puppet 4 & 5
+      },
+      'string_package_ensure' => {
+        :name    => %w(package_ensure),
+        :valid   => %w(installed),
+        :invalid => [%w(array), { 'ha' => 'sh' }, 3, 2.42, false],
+        :message => 'expects a String value', # Puppet 4 & 5
+      },
+    }
+
+    validations.sort.each do |type, var|
+      mandatory_params = {} if mandatory_params.nil?
+      var[:name].each do |var_name|
+        var[:params] = {} if var[:params].nil?
+        var[:valid].each do |valid|
+          context "when #{var_name} (#{type}) is set to valid #{valid} (as #{valid.class})" do
+            let(:facts) { [mandatory_facts, var[:facts]].reduce(:merge) } if ! var[:facts].nil?
+            let(:params) { [mandatory_params, var[:params], { :"#{var_name}" => valid, }].reduce(:merge) }
+            it { should compile }
+          end
+        end
+
+        var[:invalid].each do |invalid|
+          context "when #{var_name} (#{type}) is set to invalid #{invalid} (as #{invalid.class})" do
+            let(:params) { [mandatory_params, var[:params], { :"#{var_name}" => invalid, }].reduce(:merge) }
+            it 'should fail' do
+              expect { should contain_class(subject) }.to raise_error(Puppet::Error, /#{var[:message]}/)
+            end
+          end
+        end
+      end # var[:name].each
+    end # validations.sort.each
+  end # describe 'variable type and content validations'
 end
