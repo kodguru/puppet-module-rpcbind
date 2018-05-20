@@ -11,6 +11,9 @@
 
 Manages rpcbind package and service.
 
+Puppet strings documentation available at
+[http://ghoneycutt.github.io/puppet-module-rpcbind/index.html](http://ghoneycutt.github.io/puppet-module-rpcbind/index.html)
+
 #### Compatibility
 
 This module is built for use with the latest versions of Puppet v4 and
