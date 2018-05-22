@@ -14,6 +14,12 @@ Manages rpcbind package and service.
 Puppet strings documentation available at
 [http://ghoneycutt.github.io/puppet-module-rpcbind/index.html](http://ghoneycutt.github.io/puppet-module-rpcbind/index.html)
 
+#### Requirements
+
+This module requires
+[puppetlabs/stdlib](https://github.com/puppetlabs/puppetlabs-stdlib). The
+exact version can be found in the module's metadata in `metadata.json`.
+
 #### Compatibility
 
 This module is built for use with the latest versions of Puppet v4 and
@@ -31,6 +37,10 @@ Supports the following platforms.
  * Ubuntu 14.04 LTS
  * Ubuntu 16.04 LTS
  * Ubuntu 18.04 LTS
+
+#### Development
+
+See the `CONTRIBUTING.md` file.
 
 #### Examples
 
