@@ -32,3 +32,11 @@ group :documentation do
   gem 'redcarpet',      require: false
   gem 'puppet-strings', require: false
 end
+
+group :system_tests do
+  gem 'beaker',                       :require => false
+  gem 'beaker-rspec',                 :require => false
+  gem 'serverspec',                   :require => false
+  gem 'beaker-puppet_install_helper', :require => false
+  gem 'beaker-module_install_helper', :require => false
+end
