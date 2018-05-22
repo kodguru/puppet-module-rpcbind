@@ -29,6 +29,10 @@
 #  * Ubuntu 16.04 LTS
 #  * Ubuntu 18.04 LTS
 #
+# #### Development
+#
+# See the `CONTRIBUTING.md` file.
+#
 # @example Declaring the class
 #   include ::rpcbind
 #
