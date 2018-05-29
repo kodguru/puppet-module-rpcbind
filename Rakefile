@@ -22,7 +22,7 @@ require 'puppet-strings/tasks'
 desc 'Alias for strings:generate'
 task :doc => ['strings:generate']
 
-desc 'Generate README.md'
-task :readme do
-  sh 'puppet strings generate --format markdown --out README.md'
+desc 'Generate REFERENCE.md'
+task :reference do
+  sh 'puppet strings generate --format markdown'
 end

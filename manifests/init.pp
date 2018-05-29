@@ -2,37 +2,6 @@
 #
 # Manages rpcbind package and service.
 #
-# Puppet strings documentation available at
-# [http://ghoneycutt.github.io/puppet-module-rpcbind/index.html](http://ghoneycutt.github.io/puppet-module-rpcbind/index.html)
-#
-# #### Requirements
-#
-# This module requires
-# [puppetlabs/stdlib](https://github.com/puppetlabs/puppetlabs-stdlib). The
-# exact version can be found in the module's metadata in `metadata.json`.
-#
-# #### Compatibility
-#
-# This module is built for use with the latest versions of Puppet v4 and
-# v5 with the ruby version packaged in the all-in-one installer. See
-# `.travis.yml` for the supported matrix of versions.
-#
-# Supports the following platforms.
-#
-#  * Debian 8
-#  * Debian 9
-#  * EL 6
-#  * EL 7
-#  * Suse 11
-#  * Suse 12
-#  * Ubuntu 14.04 LTS
-#  * Ubuntu 16.04 LTS
-#  * Ubuntu 18.04 LTS
-#
-# #### Development
-#
-# See the `CONTRIBUTING.md` file.
-#
 # @example Declaring the class
 #   include ::rpcbind
 #
