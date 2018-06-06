@@ -10,5 +10,10 @@ Contributions are welcomed!
    version, such as `v2.0.0`, and change `HEAD` to the same version,
    such as `v2.0.0`.
 1. Update `REFERENCE.md` with the command `bundle exec rake reference`
+1. Commit changes and push to master
+1. Tag the new version
 1. Update the puppet strings documentation with `bundle exec rake
    strings:gh_pages:update`
+1. Clean up tests with `bundle exec rake spec_clean`
+1. Build module with `puppet module build`
+1. Upload module to Puppet Forge.
