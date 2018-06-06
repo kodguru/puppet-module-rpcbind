@@ -15,5 +15,6 @@ Contributions are welcomed!
 1. Push tags `git push --tags`
 1. Update the puppet strings documentation with `bundle exec rake strings:gh_pages:update`
 1. Clean up tests with `bundle exec rake spec_clean`
+1. Remove junit directory from beaker runs `rm -fr junit`
 1. Build module with `puppet module build`
 1. Upload module to Puppet Forge.
