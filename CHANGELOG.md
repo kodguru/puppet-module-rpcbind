@@ -1,13 +1,33 @@
 # Change Log
 
-## [v2.0.0](https://github.com/ghoneycutt/puppet-module-rpcbind/tree/v2.0.0)
+## [v2.1.0](https://github.com/ghoneycutt/puppet-module-rpcbind/tree/v2.1.0)
 
+[Full Changelog](https://github.com/ghoneycutt/puppet-module-rpcbind/compare/v2.0.0...v2.1.0)
+
+**Closed issues:**
+
+- modernize for puppet4/5 [\#30](https://github.com/ghoneycutt/puppet-module-rpcbind/issues/30)
+
+**Merged pull requests:**
+
+- Comply with feedback to attain Approved status on the Puppet Forge [\#37](https://github.com/ghoneycutt/puppet-module-rpcbind/pull/37) ([ghoneycutt](https://github.com/ghoneycutt))
+- Add beaker acceptance testing [\#36](https://github.com/ghoneycutt/puppet-module-rpcbind/pull/36) ([ghoneycutt](https://github.com/ghoneycutt))
+- Approved [\#35](https://github.com/ghoneycutt/puppet-module-rpcbind/pull/35) ([ghoneycutt](https://github.com/ghoneycutt))
+- Add rake task to generate README.md [\#34](https://github.com/ghoneycutt/puppet-module-rpcbind/pull/34) ([ghoneycutt](https://github.com/ghoneycutt))
+
+## [v2.0.0](https://github.com/ghoneycutt/puppet-module-rpcbind/tree/v2.0.0) (2018-05-20)
 [Full Changelog](https://github.com/ghoneycutt/puppet-module-rpcbind/compare/v1.8.0...v2.0.0)
 
 **Closed issues:**
 
 - Upstream issue with systemd where rpcbind\_service enable keeps changing from false to true. [\#27](https://github.com/ghoneycutt/puppet-module-rpcbind/issues/27)
 - install fails because of missing link [\#13](https://github.com/ghoneycutt/puppet-module-rpcbind/issues/13)
+
+**Merged pull requests:**
+
+- Puppet strings [\#33](https://github.com/ghoneycutt/puppet-module-rpcbind/pull/33) ([ghoneycutt](https://github.com/ghoneycutt))
+- Docs [\#32](https://github.com/ghoneycutt/puppet-module-rpcbind/pull/32) ([ghoneycutt](https://github.com/ghoneycutt))
+- Support latest Puppet versions 4 and 5 and drop support for v3 [\#31](https://github.com/ghoneycutt/puppet-module-rpcbind/pull/31) ([ghoneycutt](https://github.com/ghoneycutt))
 
 ## [v1.8.0](https://github.com/ghoneycutt/puppet-module-rpcbind/tree/v1.8.0) (2018-05-15)
 [Full Changelog](https://github.com/ghoneycutt/puppet-module-rpcbind/compare/v1.7.0...v1.8.0)
