@@ -1,6 +1,6 @@
 require 'spec_helper_acceptance'
 
-describe 'rpcbind class', :unless => UNSUPPORTED_PLATFORMS.include?(fact('osfamily')) do
+describe 'rpcbind class' do
   context 'rpcbind' do
     context 'with default values for all parameters' do
       context 'it should be idempotent' do
@@ -15,9 +15,7 @@ describe 'rpcbind class', :unless => UNSUPPORTED_PLATFORMS.include?(fact('osfami
 
           # Run it twice and test for idempotency
           apply_manifest(pp, :catch_failures => true)
-          it 'should be idempotent' do
-            apply_manifest(pp, :catch_changes  => true)
-          end
+          apply_manifest(pp, :catch_changes  => true)
         end
       end
 
