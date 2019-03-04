@@ -10,19 +10,21 @@ describe 'rpcbind class', :unless => UNSUPPORTED_PLATFORMS.include?(fact('osfami
 
         it 'should work with no errors' do
           pp = <<-EOS
-          include ::rpcbind
+          include rpcbind
           EOS
 
           # Run it twice and test for idempotency
           apply_manifest(pp, :catch_failures => true)
-          apply_manifest(pp, :catch_changes  => true)
+          it 'should be idempotent' do
+            apply_manifest(pp, :catch_changes  => true)
+          end
         end
       end
 
       context 'should contain resources' do
 
         pp = <<-EOS
-        include ::rpcbind
+        include rpcbind
         EOS
 
         apply_manifest(pp, :catch_failures => true)

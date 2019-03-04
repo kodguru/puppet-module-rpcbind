@@ -3,7 +3,7 @@
 # Manages rpcbind package and service.
 #
 # @example Declaring the class
-#   include ::rpcbind
+#   include rpcbind
 #
 # @param package_ensure Value used for the ensure attribute of the rpcbind package resource.
 # @param package_name Value used for the name attribute of the rpcbind package resource.
@@ -12,11 +12,11 @@
 # @param service_name Value used for the name attribute of the rpcbind service resource.
 #
 class rpcbind (
-  String $package_ensure = 'installed',
-  String $package_name   = 'rpcbind',
+  String[1] $package_ensure = 'installed',
+  String[1] $package_name = 'rpcbind',
   Boolean $service_enable = true,
-  String $service_ensure = 'running',
-  String $service_name   = 'rpcbind',
+  String[1] $service_ensure = 'running',
+  String[1] $service_name = 'rpcbind',
 ) {
 
   # Fail on unsupported platforms
