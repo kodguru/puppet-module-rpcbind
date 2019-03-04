@@ -5,13 +5,10 @@ PuppetLint.configuration.send('disable_140chars')
 PuppetLint.configuration.relative = true
 PuppetLint.configuration.ignore_paths = ['spec/**/*.pp', 'pkg/**/*.pp', 'vendor/**/*.pp']
 
-desc 'Validate manifests, templates, and ruby files'
+desc 'Validate ruby files'
 task :validate do
-  Dir['spec/**/*.rb', 'lib/**/*.rb'].each do |ruby_file|
+  Dir['spec/**/*.rb','lib/**/*.rb'].each do |ruby_file|
     sh "ruby -c #{ruby_file}" unless ruby_file =~ /spec\/fixtures/
-  end
-  Dir['vagrant/**/*.sh'].each do |shell_script|
-    sh "bash -n #{shell_script}"
   end
 end
 
