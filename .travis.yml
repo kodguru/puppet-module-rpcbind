@@ -6,12 +6,10 @@ bundler_args: --without system_tests development
 cache: bundler
 
 before_install:
-  - if [ $BUNDLER_VERSION ]; then
-      gem install -v $BUNDLER_VERSION bundler --no-rdoc --no-ri;
-    fi
   - bundle -v
   - rm Gemfile.lock || true
-  - gem update --system $RUBYGEMS_VERSION
+  - gem update --system
+  - gem update bundler
   - gem --version
   - bundle -v
 
@@ -22,48 +20,92 @@ script: 'SPEC_OPTS="--format documentation" bundle exec rake validate lint spec 
 matrix:
   fast_finish: true
   include:
-  - rvm: 2.4.3
+  - rvm: 2.4.4
     env: PUPPET_GEM_VERSION="~> 5"
-  - rvm: 2.4.3
+  - rvm: 2.5.3
+    env: PUPPET_GEM_VERSION="~> 6"
+  - rvm: 2.4.4
     sudo: required
     services: docker
-    env: BEAKER_set="centos-6"
+    env: BEAKER_set="centos-6" BEAKER_PUPPET_COLLECTION=puppet5
     bundler_args:
     script: bundle exec rake beaker
-  - rvm: 2.4.3
+  - rvm: 2.5.3
     sudo: required
     services: docker
-    env: BEAKER_set="centos-7"
+    env: BEAKER_set="centos-6" BEAKER_PUPPET_COLLECTION=puppet6
     bundler_args:
     script: bundle exec rake beaker
-  - rvm: 2.4.3
+  - rvm: 2.4.4
     sudo: required
     services: docker
-    env: BEAKER_set="debian-8"
+    env: BEAKER_set="centos-7" BEAKER_PUPPET_COLLECTION=puppet5
     bundler_args:
     script: bundle exec rake beaker
-  - rvm: 2.4.3
+  - rvm: 2.5.3
     sudo: required
     services: docker
-    env: BEAKER_set="debian-9"
+    env: BEAKER_set="centos-7" BEAKER_PUPPET_COLLECTION=puppet6
     bundler_args:
     script: bundle exec rake beaker
-  - rvm: 2.4.3
+  - rvm: 2.4.4
     sudo: required
     services: docker
-    env: BEAKER_set="ubuntu-1404"
+    env: BEAKER_set="debian-8" BEAKER_PUPPET_COLLECTION=puppet5
     bundler_args:
     script: bundle exec rake beaker
-  - rvm: 2.4.3
+  - rvm: 2.5.3
     sudo: required
     services: docker
-    env: BEAKER_set="ubuntu-1604"
+    env: BEAKER_set="debian-8" BEAKER_PUPPET_COLLECTION=puppet6
     bundler_args:
     script: bundle exec rake beaker
-  - rvm: 2.4.3
+  - rvm: 2.4.4
     sudo: required
     services: docker
-    env: BEAKER_set="ubuntu-1804"
+    env: BEAKER_set="debian-9" BEAKER_PUPPET_COLLECTION=puppet5
+    bundler_args:
+    script: bundle exec rake beaker
+  - rvm: 2.5.3
+    sudo: required
+    services: docker
+    env: BEAKER_set="debian-9" BEAKER_PUPPET_COLLECTION=puppet6
+    bundler_args:
+    script: bundle exec rake beaker
+  - rvm: 2.4.4
+    sudo: required
+    services: docker
+    env: BEAKER_set="ubuntu-1404" BEAKER_PUPPET_COLLECTION=puppet5
+    bundler_args:
+    script: bundle exec rake beaker
+  - rvm: 2.5.3
+    sudo: required
+    services: docker
+    env: BEAKER_set="ubuntu-1404" BEAKER_PUPPET_COLLECTION=puppet6
+    bundler_args:
+    script: bundle exec rake beaker
+  - rvm: 2.4.4
+    sudo: required
+    services: docker
+    env: BEAKER_set="ubuntu-1604" BEAKER_PUPPET_COLLECTION=puppet5
+    bundler_args:
+    script: bundle exec rake beaker
+  - rvm: 2.5.3
+    sudo: required
+    services: docker
+    env: BEAKER_set="ubuntu-1604" BEAKER_PUPPET_COLLECTION=puppet6
+    bundler_args:
+    script: bundle exec rake beaker
+  - rvm: 2.4.4
+    sudo: required
+    services: docker
+    env: BEAKER_set="ubuntu-1804" BEAKER_PUPPET_COLLECTION=puppet5
+    bundler_args:
+    script: bundle exec rake beaker
+  - rvm: 2.5.3
+    sudo: required
+    services: docker
+    env: BEAKER_set="ubuntu-1804" BEAKER_PUPPET_COLLECTION=puppet6
     bundler_args:
     script: bundle exec rake beaker
 
