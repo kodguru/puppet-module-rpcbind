@@ -24,7 +24,7 @@ is running and set to start at boot.
 
 ### Beginning with rpcbind
 
-Declare the main `::rpcbind` class.
+Declare the main `rpcbind` class.
 
 ## Usage
 
@@ -34,7 +34,7 @@ With the default options, the module ensures that rpcbind is running.
 ### Minimum usage
 
 ```puppet
-include '::rpcbind'
+include 'rpcbind'
 ```
 
 ### Parameters to configure class.
@@ -43,9 +43,9 @@ Please consult the `REFERENCE.md` file for all parameters.
 
 ## Limitations
 
-This module is compatible with the latest releases of Puppet v4 and v5. Please
-see `metadata.json` for a list of supported platforms. See `.travis.yml` for a
-matrix of tested Ruby and Puppet versions.
+This module is compatible with the latest release of v5. Please see
+`metadata.json` for a list of supported platforms. See `.travis.yml` for
+a matrix of tested Ruby and Puppet versions.
 
 Supports the following platforms.
 
