@@ -1,21 +1,20 @@
 require 'spec_helper'
 describe 'rpcbind' do
-
   describe 'on unsupported platforms' do
-    unsupported_platforms.sort.each do |k,v|
+    unsupported_platforms.sort.each do |k, v|
       context "with defaults params on #{k}" do
         let(:facts) { v[:facts_hash] }
 
         it 'should fail' do
           expect {
             should contain_class('rpcbind')
-          }.to raise_error(Puppet::Error,/os\.release\.major|Unsupported osfamily detected/)
+          }.to raise_error(Puppet::Error, /os\.release\.major|Unsupported osfamily detected/)
         end
       end
     end
   end
 
-  platforms.sort.each do |os,v|
+  platforms.sort.each do |os, v|
     context "with default values for parameters on OS #{os}" do
       let(:facts) { v[:facts_hash] }
         it {
@@ -97,27 +96,27 @@ describe 'rpcbind' do
 
     validations = {
       'boolean' => {
-        :name    => %w(service_enable),
+        :name    => ['service_enable'],
         :valid   => [true, false],
-        :invalid => ['string', %w(array), { 'ha' => 'sh' }, 3, 2.42, 'false'],
+        :invalid => ['string', ['array'], { 'ha' => 'sh' }, 3, 2.42, 'false'],
         :message => 'expects a Boolean value', # Puppet 4 & 5
       },
       'string' => {
-        :name    => %w(package_name service_name),
-        :valid   => %w(string),
-        :invalid => [%w(array), { 'ha' => 'sh' }, 3, 2.42, false],
+        :name    => ['package_name', 'service_name'],
+        :valid   => ['string'],
+        :invalid => [['array'], { 'ha' => 'sh' }, 3, 2.42, false],
         :message => 'expects a String value', # Puppet 4 & 5
       },
       'string_service_ensure' => {
-        :name    => %w(service_ensure),
-        :valid   => %w(running),
-        :invalid => [%w(array), { 'ha' => 'sh' }, 3, 2.42, false],
+        :name    => ['service_ensure'],
+        :valid   => ['running'],
+        :invalid => [['array'], { 'ha' => 'sh' }, 3, 2.42, false],
         :message => 'expects a String value', # Puppet 4 & 5
       },
       'string_package_ensure' => {
-        :name    => %w(package_ensure),
-        :valid   => %w(installed),
-        :invalid => [%w(array), { 'ha' => 'sh' }, 3, 2.42, false],
+        :name    => ['package_ensure'],
+        :valid   => ['installed'],
+        :invalid => [['array'], { 'ha' => 'sh' }, 3, 2.42, false],
         :message => 'expects a String value', # Puppet 4 & 5
       },
     }
@@ -129,14 +128,14 @@ describe 'rpcbind' do
         var[:valid].each do |valid|
           context "when #{var_name} (#{type}) is set to valid #{valid} (as #{valid.class})" do
             let(:facts) { [mandatory_facts, var[:facts]].reduce(:merge) } if ! var[:facts].nil?
-            let(:params) { [mandatory_params, var[:params], { :"#{var_name}" => valid, }].reduce(:merge) }
+            let(:params) { [mandatory_params, var[:params], { :"#{var_name}" => valid }].reduce(:merge) }
             it { should compile }
           end
         end
 
         var[:invalid].each do |invalid|
           context "when #{var_name} (#{type}) is set to invalid #{invalid} (as #{invalid.class})" do
-            let(:params) { [mandatory_params, var[:params], { :"#{var_name}" => invalid, }].reduce(:merge) }
+            let(:params) { [mandatory_params, var[:params], { :"#{var_name}" => invalid }].reduce(:merge) }
             it 'should fail' do
               expect { should contain_class(subject) }.to raise_error(Puppet::Error, /#{var[:message]}/)
             end
