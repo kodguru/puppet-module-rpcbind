@@ -1,7 +1,15 @@
 # Change Log
 
-## [v2.1.0](https://github.com/ghoneycutt/puppet-module-rpcbind/tree/v2.1.0)
+## [v2.2.0](https://github.com/ghoneycutt/puppet-module-rpcbind/tree/v2.2.0)
 
+[Full Changelog](https://github.com/ghoneycutt/puppet-module-rpcbind/compare/v2.1.0...v2.2.0)
+
+**Merged pull requests:**
+
+- Use PDK [\#40](https://github.com/ghoneycutt/puppet-module-rpcbind/pull/40) ([ghoneycutt](https://github.com/ghoneycutt))
+- Drop puppet4 add puppet6 [\#39](https://github.com/ghoneycutt/puppet-module-rpcbind/pull/39) ([ghoneycutt](https://github.com/ghoneycutt))
+
+## [v2.1.0](https://github.com/ghoneycutt/puppet-module-rpcbind/tree/v2.1.0) (2018-06-06)
 [Full Changelog](https://github.com/ghoneycutt/puppet-module-rpcbind/compare/v2.0.0...v2.1.0)
 
 **Closed issues:**
