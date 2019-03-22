@@ -5,7 +5,7 @@ describe 'rpcbind class' do
     context 'with default values for all parameters' do
       context 'it should be idempotent' do
         if fact('osfamily') == 'Debian' and fact('operatingsystemrelease') == '16.04'
-          before { skip("Ubuntu 16.04 has a systemd issue that makes setting the service enable not idempotent. Skipping test.") }
+          before { skip('Ubuntu 16.04 has a systemd issue that makes setting the service enable not idempotent. Skipping test.') }
         end
 
         it 'should work with no errors' do
@@ -20,7 +20,6 @@ describe 'rpcbind class' do
       end
 
       context 'should contain resources' do
-
         pp = <<-EOS
         include rpcbind
         EOS
