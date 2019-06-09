@@ -1,11 +1,13 @@
 # Change Log
 
-## [v2.2.0](https://github.com/ghoneycutt/puppet-module-rpcbind/tree/v2.2.0)
+## [v2.3.0](https://github.com/ghoneycutt/puppet-module-rpcbind/tree/v2.3.0)
 
-[Full Changelog](https://github.com/ghoneycutt/puppet-module-rpcbind/compare/v2.1.0...v2.2.0)
+[Full Changelog](https://github.com/ghoneycutt/puppet-module-rpcbind/compare/v2.1.0...v2.3.0)
 
 **Merged pull requests:**
 
+- \(CI\) Add testing dependencies without bounds set [\#42](https://github.com/ghoneycutt/puppet-module-rpcbind/pull/42) ([ghoneycutt](https://github.com/ghoneycutt))
+- Allow stdlib 6 [\#41](https://github.com/ghoneycutt/puppet-module-rpcbind/pull/41) ([ghoneycutt](https://github.com/ghoneycutt))
 - Use PDK [\#40](https://github.com/ghoneycutt/puppet-module-rpcbind/pull/40) ([ghoneycutt](https://github.com/ghoneycutt))
 - Drop puppet4 add puppet6 [\#39](https://github.com/ghoneycutt/puppet-module-rpcbind/pull/39) ([ghoneycutt](https://github.com/ghoneycutt))
 
