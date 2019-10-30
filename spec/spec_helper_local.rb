@@ -112,6 +112,25 @@ def platforms
         :package_name => 'rpcbind',
         :service_name => 'rpcbind',
       },
+    'suse15' =>
+      {
+        :facts_hash => {
+          :osfamily => 'Suse',
+          :operatingsystem => 'SLES',
+          :operatingsystemmajrelease => '15',
+          :os => {
+            'name' => 'SLES',
+            'family' => 'Suse',
+            'release' => {
+              'full'  => '15.1',
+              'major' => '15',
+              'minor' => '1'
+            }
+          },
+        },
+        :package_name => 'rpcbind',
+        :service_name => 'rpcbind',
+      },
     'ubuntu1404' =>
       {
         :facts_hash => {
