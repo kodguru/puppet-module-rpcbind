@@ -1,15 +1,31 @@
 # Change Log
 
-## [v2.3.0](https://github.com/ghoneycutt/puppet-module-rpcbind/tree/v2.3.0)
+## [v2.4.0](https://github.com/ghoneycutt/puppet-module-rpcbind/tree/v2.4.0) (2019-10-31)
+[Full Changelog](https://github.com/ghoneycutt/puppet-module-rpcbind/compare/v2.3.0...v2.4.0)
 
-[Full Changelog](https://github.com/ghoneycutt/puppet-module-rpcbind/compare/v2.1.0...v2.3.0)
+**Merged pull requests:**
+
+- Support SLES 15 [\#43](https://github.com/ghoneycutt/puppet-module-rpcbind/pull/43) ([anders-larsson](https://github.com/anders-larsson))
+
+## [v2.3.0](https://github.com/ghoneycutt/puppet-module-rpcbind/tree/v2.3.0) (2019-06-09)
+[Full Changelog](https://github.com/ghoneycutt/puppet-module-rpcbind/compare/v2.2.0...v2.3.0)
 
 **Merged pull requests:**
 
 - \(CI\) Add testing dependencies without bounds set [\#42](https://github.com/ghoneycutt/puppet-module-rpcbind/pull/42) ([ghoneycutt](https://github.com/ghoneycutt))
 - Allow stdlib 6 [\#41](https://github.com/ghoneycutt/puppet-module-rpcbind/pull/41) ([ghoneycutt](https://github.com/ghoneycutt))
+
+## [v2.2.0](https://github.com/ghoneycutt/puppet-module-rpcbind/tree/v2.2.0) (2019-03-22)
+[Full Changelog](https://github.com/ghoneycutt/puppet-module-rpcbind/compare/rm...v2.2.0)
+
+## [rm](https://github.com/ghoneycutt/puppet-module-rpcbind/tree/rm) (2019-03-22)
+[Full Changelog](https://github.com/ghoneycutt/puppet-module-rpcbind/compare/v2.1.0...rm)
+
+**Merged pull requests:**
+
 - Use PDK [\#40](https://github.com/ghoneycutt/puppet-module-rpcbind/pull/40) ([ghoneycutt](https://github.com/ghoneycutt))
 - Drop puppet4 add puppet6 [\#39](https://github.com/ghoneycutt/puppet-module-rpcbind/pull/39) ([ghoneycutt](https://github.com/ghoneycutt))
+- Fix metadata [\#29](https://github.com/ghoneycutt/puppet-module-rpcbind/pull/29) ([ghoneycutt](https://github.com/ghoneycutt))
 
 ## [v2.1.0](https://github.com/ghoneycutt/puppet-module-rpcbind/tree/v2.1.0) (2018-06-06)
 [Full Changelog](https://github.com/ghoneycutt/puppet-module-rpcbind/compare/v2.0.0...v2.1.0)
@@ -38,13 +54,13 @@
 - Puppet strings [\#33](https://github.com/ghoneycutt/puppet-module-rpcbind/pull/33) ([ghoneycutt](https://github.com/ghoneycutt))
 - Docs [\#32](https://github.com/ghoneycutt/puppet-module-rpcbind/pull/32) ([ghoneycutt](https://github.com/ghoneycutt))
 - Support latest Puppet versions 4 and 5 and drop support for v3 [\#31](https://github.com/ghoneycutt/puppet-module-rpcbind/pull/31) ([ghoneycutt](https://github.com/ghoneycutt))
+- Fixup [\#19](https://github.com/ghoneycutt/puppet-module-rpcbind/pull/19) ([ghoneycutt](https://github.com/ghoneycutt))
 
 ## [v1.8.0](https://github.com/ghoneycutt/puppet-module-rpcbind/tree/v1.8.0) (2018-05-15)
 [Full Changelog](https://github.com/ghoneycutt/puppet-module-rpcbind/compare/v1.7.0...v1.8.0)
 
 **Merged pull requests:**
 
-- Fix metadata [\#29](https://github.com/ghoneycutt/puppet-module-rpcbind/pull/29) ([ghoneycutt](https://github.com/ghoneycutt))
 - Add support for Ubuntu 18.04 [\#28](https://github.com/ghoneycutt/puppet-module-rpcbind/pull/28) ([nbentoumi](https://github.com/nbentoumi))
 - Support Puppet \>= 4.9 [\#26](https://github.com/ghoneycutt/puppet-module-rpcbind/pull/26) ([Phil-Friderici](https://github.com/Phil-Friderici))
 
@@ -85,7 +101,6 @@
 
 **Merged pull requests:**
 
-- Fixup [\#19](https://github.com/ghoneycutt/puppet-module-rpcbind/pull/19) ([ghoneycutt](https://github.com/ghoneycutt))
 - Ubuntu fix service name [\#18](https://github.com/ghoneycutt/puppet-module-rpcbind/pull/18) ([ghoneycutt](https://github.com/ghoneycutt))
 
 ## [v1.3.0](https://github.com/ghoneycutt/puppet-module-rpcbind/tree/v1.3.0) (2014-07-14)
