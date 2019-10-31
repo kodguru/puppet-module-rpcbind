@@ -26,8 +26,8 @@ class rpcbind (
 
   if $facts['os']['family'] == 'RedHat' and !($facts['os']['release']['major'] in ['6','7']) {
     fail("osfamily RedHat's os.release.major is <${::facts['os']['release']['major']}> and must be 6 or 7")
-  } elsif $facts['os']['family'] == 'Suse' and !($facts['os']['release']['major'] in ['11','12']) {
-    fail("osfamily Suse's os.release.major is <${::facts['os']['release']['major']}> and must be 11 or 12")
+  } elsif $facts['os']['family'] == 'Suse' and !($facts['os']['release']['major'] in ['11','12','15']) {
+    fail("osfamily Suse's os.release.major is <${::facts['os']['release']['major']}> and must be 11, 12 or 15")
   } elsif $facts['os']['name'] == 'Debian' and !($facts['os']['release']['major'] in ['8','9']) {
     fail("Ubuntu's os.release.major is <${facts['os']['release']['major']}> and must be 8 or 9")
   } elsif $facts['os']['name'] == 'Ubuntu' and !($facts['os']['release']['major'] in ['14.04','16.04','18.04']) {

@@ -55,6 +55,7 @@ Supports the following platforms.
 * EL 7
 * Suse 11
 * Suse 12
+* Suse 15
 * Ubuntu 14.04 LTS
 * Ubuntu 16.04 LTS
 * Ubuntu 18.04 LTS
