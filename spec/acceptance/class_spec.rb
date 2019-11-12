@@ -32,7 +32,14 @@ describe 'rpcbind class' do
 
         describe service('rpcbind') do
           it { is_expected.to be_running }
-          it { is_expected.to be_enabled }
+          # Serverspec attempts to use chkconfig for EL 8 which fails.
+          if fact('osfamily') == 'RedHat' and fact('operatingsystemrelease') =~ /^8/
+            describe command('systemctl is-enabled rpcbind') do
+              its(:exit_status) { should eq 0 }
+            end
+          else
+            it { is_expected.to be_enabled }
+          end
         end
       end
     end

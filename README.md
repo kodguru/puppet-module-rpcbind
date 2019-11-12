@@ -53,6 +53,7 @@ Supports the following platforms.
 * Debian 9
 * EL 6
 * EL 7
+* EL 8
 * Suse 11
 * Suse 12
 * Suse 15
