@@ -30,8 +30,8 @@ class rpcbind (
     fail("osfamily Suse's os.release.major is <${::facts['os']['release']['major']}> and must be 11, 12 or 15")
   } elsif $facts['os']['name'] == 'Debian' and !($facts['os']['release']['major'] in ['8','9']) {
     fail("Ubuntu's os.release.major is <${facts['os']['release']['major']}> and must be 8 or 9")
-  } elsif $facts['os']['name'] == 'Ubuntu' and !($facts['os']['release']['major'] in ['14.04','16.04','18.04']) {
-    fail("Ubuntu's os.release.major is <${facts['os']['release']['major']}> and must be 14.04, 16.04 or 18.04")
+  } elsif $facts['os']['name'] == 'Ubuntu' and !($facts['os']['release']['major'] in ['16.04','18.04']) {
+    fail("Ubuntu's os.release.major is <${facts['os']['release']['major']}> and must be 16.04 or 18.04")
   }
 
   package { 'rpcbind_package':
