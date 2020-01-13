@@ -150,23 +150,6 @@ def platforms
         :package_name => 'rpcbind',
         :service_name => 'rpcbind',
       },
-    'ubuntu1404' =>
-      {
-        :facts_hash => {
-          :osfamily => 'Debian',
-          :operatingsystem => 'Ubuntu',
-          :os => {
-            'release' => {
-              'full'  => '14.04',
-              'major' => '14.04'
-            },
-            'name'   => 'Ubuntu',
-            'family' => 'Debian'
-          },
-        },
-        :package_name => 'rpcbind',
-        :service_name => 'rpcbind',
-      },
     'ubuntu1604' =>
       {
         :facts_hash => {
