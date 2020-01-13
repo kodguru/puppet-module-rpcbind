@@ -74,6 +74,25 @@ def platforms
         :package_name => 'rpcbind',
         :service_name => 'rpcbind',
       },
+    'el8' =>
+      {
+        :facts_hash => {
+          :osfamily => 'RedHat',
+          :operatingsystem => 'RedHat',
+          :operatingsystemmajrelease => '8',
+          :os => {
+            :name => 'RedHat',
+            :family => 'RedHat',
+            :release => {
+              :full  => '8.0.1905',
+              :major => '8',
+              :minor => '0'
+            }
+          },
+        },
+        :package_name => 'rpcbind',
+        :service_name => 'rpcbind',
+      },
     'suse11' =>
       {
         :facts_hash => {
