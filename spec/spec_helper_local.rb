@@ -184,6 +184,23 @@ def platforms
         :package_name => 'rpcbind',
         :service_name => 'rpcbind',
       },
+    'ubuntu2004' =>
+      {
+        :facts_hash => {
+          :osfamily => 'Debian',
+          :operatingsystem => 'Ubuntu',
+          :os => {
+            'release' => {
+              'full'  => '20.04',
+              'major' => '20.04'
+            },
+            'name'   => 'Ubuntu',
+            'family' => 'Debian'
+          },
+        },
+        :package_name => 'rpcbind',
+        :service_name => 'rpcbind',
+      },
   }
 end
 
