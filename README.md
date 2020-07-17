@@ -59,6 +59,7 @@ Supports the following platforms.
 * Suse 15
 * Ubuntu 16.04 LTS
 * Ubuntu 18.04 LTS
+* Ubuntu 20.04 LTS
 
 ## Development
 
