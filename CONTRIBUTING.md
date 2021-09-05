@@ -14,7 +14,3 @@ github_changelog_generator --user ghoneycutt --project puppet-module-rpcbind --f
 1. Tag the new version, such as `git tag -a 'v2.0.0' -m 'v2.0.0'`
 1. Push tags `git push --tags`
 1. Update the puppet strings documentation with `pdk bundle exec rake strings:gh_pages:update`
-1. Clean up tests with `pdk bundle exec rake spec_clean`
-1. Remove junit directory from beaker runs `rm -fr junit`
-1. Build module with `pdk build`
-1. Upload module to Puppet Forge.
