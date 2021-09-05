@@ -34,7 +34,7 @@ With the default options, the module ensures that rpcbind is running.
 ### Minimum usage
 
 ```puppet
-include 'rpcbind'
+include rpcbind
 ```
 
 ### Parameters to configure class.
