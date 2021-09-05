@@ -1,5 +1,13 @@
 # Changelog
 
+## [v3.0.0](https://github.com/ghoneycutt/puppet-module-rpcbind/tree/v3.0.0) (2021-09-05)
+
+[Full Changelog](https://github.com/ghoneycutt/puppet-module-rpcbind/compare/v2.6.0...v3.0.0)
+
+**Merged pull requests:**
+
+- Support Puppet 7 [\#49](https://github.com/ghoneycutt/puppet-module-rpcbind/pull/49) ([ghoneycutt](https://github.com/ghoneycutt))
+
 ## [v2.6.0](https://github.com/ghoneycutt/puppet-module-rpcbind/tree/v2.6.0) (2020-07-17)
 
 [Full Changelog](https://github.com/ghoneycutt/puppet-module-rpcbind/compare/v2.5.0...v2.6.0)
@@ -84,6 +92,7 @@
 **Merged pull requests:**
 
 - Fix metadata [\#29](https://github.com/ghoneycutt/puppet-module-rpcbind/pull/29) ([ghoneycutt](https://github.com/ghoneycutt))
+- Add support for Ubuntu 18.04 [\#28](https://github.com/ghoneycutt/puppet-module-rpcbind/pull/28) ([nbentoumi](https://github.com/nbentoumi))
 - Support Puppet \>= 4.9 [\#26](https://github.com/ghoneycutt/puppet-module-rpcbind/pull/26) ([Phil-Friderici](https://github.com/Phil-Friderici))
 
 ## [v1.7.0](https://github.com/ghoneycutt/puppet-module-rpcbind/tree/v1.7.0) (2017-02-19)
@@ -92,7 +101,6 @@
 
 **Merged pull requests:**
 
-- Add support for Ubuntu 18.04 [\#28](https://github.com/ghoneycutt/puppet-module-rpcbind/pull/28) ([nbentoumi](https://github.com/nbentoumi))
 - Add support for Ubuntu 16.04 [\#25](https://github.com/ghoneycutt/puppet-module-rpcbind/pull/25) ([dsundq](https://github.com/dsundq))
 - \(maint\) fix dependencies [\#24](https://github.com/ghoneycutt/puppet-module-rpcbind/pull/24) ([ghoneycutt](https://github.com/ghoneycutt))
 
