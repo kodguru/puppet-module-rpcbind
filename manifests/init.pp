@@ -18,20 +18,18 @@ class rpcbind (
   String[1] $service_ensure = 'running',
   String[1] $service_name = 'rpcbind',
 ) {
-
-  # Fail on unsupported platforms
   if !($facts['os']['family'] in ['Debian','RedHat','Suse']) {
-    fail('Unsupported osfamily detected. This module works with Debian, RedHat and Suse')
+    notice('Unsupported osfamily detected. This module works with Debian, RedHat and Suse')
   }
 
-  if $facts['os']['family'] == 'RedHat' and !($facts['os']['release']['major'] in ['6','7','8']) {
-    fail("osfamily RedHat's os.release.major is <${::facts['os']['release']['major']}> and must be 6, 7 or 8")
-  } elsif $facts['os']['family'] == 'Suse' and !($facts['os']['release']['major'] in ['11','12','15']) {
-    fail("osfamily Suse's os.release.major is <${::facts['os']['release']['major']}> and must be 11, 12 or 15")
-  } elsif $facts['os']['name'] == 'Debian' and !($facts['os']['release']['major'] in ['8','9']) {
-    fail("Ubuntu's os.release.major is <${facts['os']['release']['major']}> and must be 8 or 9")
-  } elsif $facts['os']['name'] == 'Ubuntu' and !($facts['os']['release']['major'] in ['16.04','18.04','20.04']) {
-    fail("Ubuntu's os.release.major is <${facts['os']['release']['major']}> and must be 16.04, 18.04 or 20.04")
+  if $facts['os']['family'] == 'RedHat' and !($facts['os']['release']['major'] in ['7','8']) {
+    notice("osfamily RedHat's os.release.major is <${::facts['os']['release']['major']}> and is not supported.")
+  } elsif $facts['os']['family'] == 'Suse' and !($facts['os']['release']['major'] in ['15']) {
+    notice("osfamily Suse's os.release.major is <${::facts['os']['release']['major']}> and is not supported.")
+  } elsif $facts['os']['name'] == 'Debian' and !($facts['os']['release']['major'] in ['9','10']) {
+    notice("Ubuntu's os.release.major is <${facts['os']['release']['major']}> and is not supported.")
+  } elsif $facts['os']['name'] == 'Ubuntu' and !($facts['os']['release']['major'] in ['18.04','20.04']) {
+    notice("Ubuntu's os.release.major is <${facts['os']['release']['major']}> and is not supported.")
   }
 
   package { 'rpcbind_package':

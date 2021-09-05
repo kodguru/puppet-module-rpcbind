@@ -10,21 +10,20 @@
   "dependencies": [
     {
       "name": "puppetlabs/stdlib",
-      "version_requirement": ">= 4.6.0 < 7.0.0"
+      "version_requirement": ">= 4.6.0 < 9.0.0"
     }
   ],
   "operatingsystem_support": [
     {
       "operatingsystem": "Debian",
       "operatingsystemrelease": [
-        "8",
-        "9"
+        "9",
+        "10"
       ]
     },
     {
       "operatingsystem": "RedHat",
       "operatingsystemrelease": [
-        "6",
         "7",
         "8"
       ]
@@ -32,7 +31,6 @@
     {
       "operatingsystem": "CentOS",
       "operatingsystemrelease": [
-        "6",
         "7",
         "8"
       ]
@@ -40,7 +38,6 @@
     {
       "operatingsystem": "OracleLinux",
       "operatingsystemrelease": [
-        "6",
         "7",
         "8"
       ]
@@ -48,21 +45,25 @@
     {
       "operatingsystem": "Scientific",
       "operatingsystemrelease": [
-        "6",
         "7",
         "8"
       ]
     },
     {
-      "operatingsystem": "SLES"
+      "operatingsystem": "SLES",
+      "operatingsystemrelease": [
+        "15"
+      ]
     },
     {
-      "operatingsystem": "SLED"
+      "operatingsystem": "SLED",
+      "operatingsystemrelease": [
+        "15"
+      ]
     },
     {
       "operatingsystem": "Ubuntu",
       "operatingsystemrelease": [
-        "16.04",
         "18.04",
         "20.04"
       ]
@@ -71,11 +72,11 @@
   "requirements": [
     {
       "name": "puppet",
-      "version_requirement": ">= 5.5.8 < 7.0.0"
+      "version_requirement": ">= 6.0.0 < 8.0.0"
     }
   ],
   "description": "Manages rpcbind",
-  "pdk-version": "1.15.0",
-  "template-url": "https://github.com/puppetlabs/pdk-templates#master",
-  "template-ref": "heads/master-0-g941e819"
+  "pdk-version": "2.2.0",
+  "template-url": "https://github.com/puppetlabs/pdk-templates#main",
+  "template-ref": "heads/main-0-gfe51af3"
 }

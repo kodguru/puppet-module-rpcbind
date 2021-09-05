@@ -1,19 +1,5 @@
 require 'spec_helper'
 describe 'rpcbind' do
-  describe 'on unsupported platforms' do
-    unsupported_platforms.sort.each do |k, v|
-      context "with defaults params on #{k}" do
-        let(:facts) { v[:facts_hash] }
-
-        it 'should fail' do
-          expect {
-            should contain_class('rpcbind')
-          }.to raise_error(Puppet::Error, /os\.release\.major|Unsupported osfamily detected/)
-        end
-      end
-    end
-  end
-
   platforms.sort.each do |os, v|
     context "with default values for parameters on OS #{os}" do
       let(:facts) { v[:facts_hash] }

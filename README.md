@@ -43,21 +43,16 @@ Please consult the `REFERENCE.md` file for all parameters.
 
 ## Limitations
 
-This module is compatible with the latest release of Puppet verions 5
-and 6. Please see `metadata.json` for a list of supported platforms. See
-`.travis.yml` for a matrix of tested Ruby and Puppet versions.
+This module is compatible with the latest release of Puppet verions 6
+and 7. Please see `metadata.json` for a list of supported platforms.
 
 Supports the following platforms.
 
-* Debian 8
 * Debian 9
-* EL 6
+* Debian 10
 * EL 7
 * EL 8
-* Suse 11
-* Suse 12
 * Suse 15
-* Ubuntu 16.04 LTS
 * Ubuntu 18.04 LTS
 * Ubuntu 20.04 LTS
 
